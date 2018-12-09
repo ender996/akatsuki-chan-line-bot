@@ -229,9 +229,28 @@ def handle_text_message(event):
                     preview_image_url=pake_ini[cmd.group(2)][1])
                 line_bot_api.reply_message(event.reply_token, image_message)
             else:
-                line_bot_api.reply_message(
-                    event.reply_token, TextSendMessage(text="Untuk melihat list tag ketik '#taglist'"))
-        # taglist
+#                line_bot_api.reply_message(
+#                    event.reply_token, TextSendMessage(text="Untuk melihat list tag ketik '#taglist'"))
+                group = cl.getGroup(msg.to)
+                nama = [contact.mid for contact in group.members]
+                cb = ""
+                cb2 = ""
+                strt = int(0)
+                akh = int(0)
+                for md in nama:
+                    akh = akh + int(6)
+                    cb += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(md)+"},"""
+                    strt = strt + int(7)
+                    akh = akh + 1
+                    cb2 += "@nrik \n"
+                cb = (cb[:int(len(cb)-1)])
+                msg.contentType = 0
+                msg.text = cb2
+                msg.contentMetadata ={'MENTION':'{"MENTIONEES":['+cb+']}','EMTVER':'4'}
+                try:
+                    cl.sendMessage(msg)
+
+# taglist
         elif cmd.group() == '#taglist':
             pake_ini = img_url_tag
             if isinstance(event.source, SourceGroup):
