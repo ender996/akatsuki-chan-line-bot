@@ -234,7 +234,6 @@ def handle_text_message(event):
                 msg.contentType = 0
                 msg.text = '[DL.] PARZIVAL'
                 msg.contentMetadata ={'MENTION':'{"MENTIONEES":['1']}','EMTVER':'4'}
-                try:
                     cl.sendMessage(msg)
 
 # taglist
