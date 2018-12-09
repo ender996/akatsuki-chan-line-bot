@@ -234,7 +234,7 @@ def handle_text_message(event):
                 msg.contentType = 0
                 msg.text = '[DL.] PARZIVAL'
                 msg.contentMetadata ={'MENTION':'{"MENTIONEES":['1']}','EMTVER':'4'}
-                    cl.sendMessage(msg)
+                    line_bot_api.sendMessage(msg)
 
 # taglist
         elif cmd.group() == '#taglist':
