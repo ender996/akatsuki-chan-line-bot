@@ -229,12 +229,12 @@ def handle_text_message(event):
                     preview_image_url=pake_ini[cmd.group(2)][1])
                 line_bot_api.reply_message(event.reply_token, image_message)
             else:
-#                line_bot_api.reply_message(
-#                    event.reply_token, TextSendMessage(text="Untuk melihat list tag ketik '#taglist'"))
-                msg.contentType = 0
-                msg.text = '[DL.] PARZIVAL'
-                msg.contentMetadata ={'MENTION':'{"MENTIONEES":['1']}','EMTVER':'4'}
-                    line_bot_api.sendMessage(msg)
+                line_bot_api.reply_message(
+                    event.reply_token, TextSendMessage(text="Untuk melihat list tag ketik '#taglist'"))
+#                msg.contentType = 0
+#                msg.text = '[DL.] PARZIVAL'
+#                msg.contentMetadata ={'MENTION':'{"MENTIONEES":['1']}','EMTVER':'4'}
+#                    line_bot_api.sendMessage(msg)
 
 # taglist
         elif cmd.group() == '#taglist':
