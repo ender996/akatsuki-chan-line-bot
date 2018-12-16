@@ -283,7 +283,7 @@ def handle_text_message(event):
                 event.reply_token, TextSendMessage(text="It's curry night!"))
         # profil
         elif cmd.group() == '#profil':
-            if isinstance(event.source, SourceUser) or isinstance(event.source, SourceRoom) or isinstance(event.source, SourceGroup):
+            #if isinstance(event.source, SourceUser) or isinstance(event.source, SourceRoom) or isinstance(event.source, SourceGroup):
                 profile = line_bot_api.get_profile(event.source.user_id)
                 txt = 'Hai ' + profile.display_name
                 txt2 = 'Status message mu: ' + profile.status_message
