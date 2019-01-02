@@ -58,7 +58,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')  # coba db
 
 db = SQLAlchemy(app)    # coba db
-dz = LINE("")
 
 channel_access_token = str(os.environ.get('CHANNEL_ACCESS_TOKEN'))
 channel_secret = str(os.environ.get('CHANNEL_SECRET'))
