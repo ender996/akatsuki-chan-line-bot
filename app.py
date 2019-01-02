@@ -191,25 +191,12 @@ def handle_text_message(event):
                 event.reply_token, TextSendMessage(text="""Dibuat sebagai project pembelajaran oleh: Ikraduya Edian(line:ikraduya) dan kontributor: Farisan, Radit, Ojan, Jodi, Altia
                                                         Kritik dan saran mohon dikirimkan lewat (line:ikraduya), terima kasih.                                                       
                                                         """))
-        elif "Spamtag @" in msg.text:
-                _name = msg.text.replace("Spamtag @","")
-                _nametarget = _name.rstrip(' ')
-                gs = dz.getGroup(msg.to)
-                for g in gs.members:
-                    if _nametarget == g.displayName:
-                        xname = g.displayName
-                        xlen = str(len(xname)+1)
-                        msg.contentType = 0
-                        msg.text = "@"+xname+" "
-                        msg.contentMetadata ={'MENTION':'{"MENTIONEES":[{"S":"0","E":'+json.dumps(xlen)+',"M":'+json.dumps(g.mid)+'}]}','EMTVER':'4'}
-                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
-                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
-                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
-                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
-                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
-                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
-                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
-                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
+            elif msg.text in ["Runtime"]:
+                timeNow = time.time()
+                runtime = timeNow - botStart
+                runtime = format_timespan(runtime)
+                dz.sendMessage(msg.to, "ʙᴏᴛ ʀᴜɴ  {}".format(str(runtime)))
+                
         # jurus
         elif cmd.group(1) == 'jurus':
             if cmd.group(2) in daftar_jurus:
