@@ -52,6 +52,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')  # coba db
 
 db = SQLAlchemy(app)    # coba db
+dz = LINE("")
 
 channel_access_token = str(os.environ.get('CHANNEL_ACCESS_TOKEN'))
 channel_secret = str(os.environ.get('CHANNEL_SECRET'))
@@ -190,6 +191,25 @@ def handle_text_message(event):
                 event.reply_token, TextSendMessage(text="""Dibuat sebagai project pembelajaran oleh: Ikraduya Edian(line:ikraduya) dan kontributor: Farisan, Radit, Ojan, Jodi, Altia
                                                         Kritik dan saran mohon dikirimkan lewat (line:ikraduya), terima kasih.                                                       
                                                         """))
+        elif "Spamtag @" in msg.text:
+                _name = msg.text.replace("Spamtag @","")
+                _nametarget = _name.rstrip(' ')
+                gs = dz.getGroup(msg.to)
+                for g in gs.members:
+                    if _nametarget == g.displayName:
+                        xname = g.displayName
+                        xlen = str(len(xname)+1)
+                        msg.contentType = 0
+                        msg.text = "@"+xname+" "
+                        msg.contentMetadata ={'MENTION':'{"MENTIONEES":[{"S":"0","E":'+json.dumps(xlen)+',"M":'+json.dumps(g.mid)+'}]}','EMTVER':'4'}
+                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
+                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
+                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
+                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
+                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
+                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
+                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
+                        dz.sendMessage(msg.to,msg.text,msg.contentMetadata)
         # jurus
         elif cmd.group(1) == 'jurus':
             if cmd.group(2) in daftar_jurus:
