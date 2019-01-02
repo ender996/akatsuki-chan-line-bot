@@ -28,12 +28,6 @@ from random import random
 from random import choice
 from argparse import ArgumentParser
 
-from LineAPI.linepy import *
-from LineAPI.akad.ttypes import Message
-from LineAPI.akad.ttypes import ContentType as Type
-from LineAPI.akad.ttypes import ChatRoomAnnouncementContents
-from LineAPI.akad.ttypes import ChatRoomAnnouncement
-
 from flask import Flask, request, abort
 
 from linebot import (
