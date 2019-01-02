@@ -53,6 +53,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')  # coba d
 
 db = SQLAlchemy(app)    # coba db
 dz = LINE("")
+botStart = time.time()
 
 channel_access_token = str(os.environ.get('CHANNEL_ACCESS_TOKEN'))
 channel_secret = str(os.environ.get('CHANNEL_SECRET'))
