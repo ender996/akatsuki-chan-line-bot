@@ -198,12 +198,6 @@ def handle_text_message(event):
                 event.reply_token, TextSendMessage(text="""Dibuat sebagai project pembelajaran oleh: Ikraduya Edian(line:ikraduya) dan kontributor: Farisan, Radit, Ojan, Jodi, Altia
                                                         Kritik dan saran mohon dikirimkan lewat (line:ikraduya), terima kasih.                                                       
                                                         """))
-        elif cmd.group() == ["Runtime"]:
-                timeNow = time.time()
-                runtime = timeNow - botStart
-                runtime = format_timespan(runtime)
-                dz.sendMessage(msg.to, "ʙᴏᴛ ʀᴜɴ  {}".format(str(runtime)))
-                
         # jurus
         elif cmd.group(1) == 'jurus':
             if cmd.group(2) in daftar_jurus:
