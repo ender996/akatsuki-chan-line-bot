@@ -192,7 +192,7 @@ def handle_text_message(event):
                 event.reply_token, TextSendMessage(text="""Dibuat sebagai project pembelajaran oleh: Ikraduya Edian(line:ikraduya) dan kontributor: Farisan, Radit, Ojan, Jodi, Altia
                                                         Kritik dan saran mohon dikirimkan lewat (line:ikraduya), terima kasih.                                                       
                                                         """))
-            elif msg.text in ["Runtime"]:
+        elif msg.text in ["Runtime"]:
                 timeNow = time.time()
                 runtime = timeNow - botStart
                 runtime = format_timespan(runtime)
